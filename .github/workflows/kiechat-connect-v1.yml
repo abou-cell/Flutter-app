@@ -25,6 +25,7 @@ jobs:
         run: |
           base64 -d KieChatConnect-source.zip.b64 > KieChatConnect-source.zip
           unzip -q -o KieChatConnect-source.zip
+          sed -i 's/textPart.put("type", "user".equals(m.role) ? "input_text" : "output_text");/textPart.put("type", "input_text");/' kiechat_connect/app/src/main/java/com/kiechat/connect/MainActivity.java
 
       - name: Check Android SDK
         run: |
